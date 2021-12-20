@@ -346,6 +346,29 @@ void wloutput_interface::StartWork()
                 connect(m_ddePointer, &DDEPointer::axisChanged, this, [this] (quint32 time, KWayland::Client::DDEPointer::Axis axis, qreal delta) {
                     Q_EMIT AxisChanged(int(axis), delta);
                 });
+
+                m_ddeTouch = m_ddeSeat->createDDETouch(this);
+                connect(m_ddeTouch, &DDETouch::touchDown, this,
+                    [this] (int32_t kwaylandId, const QPointF &pos) {
+                        m_touchMap.insert(kwaylandId, pos);
+                        // dde-session-daemon 监听此信号
+                        Q_EMIT ButtonPress(kwaylandId, pos.x(), pos.y());
+                    }
+                );
+                connect(m_ddeTouch, &DDETouch::touchMotion, this, [this] (int32_t kwaylandId, const QPointF &pos) {
+                    // 更新滑动位置
+                    m_touchMap.insert(kwaylandId, pos);
+                });
+
+                connect(m_ddeTouch, &DDETouch::touchUp, this,
+                    [this] (int32_t kwaylandId) {
+                        if (m_touchMap.contains(kwaylandId)) {
+                            QPointF pos = m_touchMap.take(kwaylandId);
+                            Q_EMIT ButtonRelease(kwaylandId, pos.x(), pos.y());
+                            m_touchMap.remove(kwaylandId);
+                        }
+                    }
+                );
             }
 
             //创建dpms

@@ -122,6 +122,8 @@ private:
     Seat *m_seat{nullptr};
     DDESeat *m_ddeSeat = nullptr;
     DDEPointer *m_ddePointer = nullptr;
+    DDETouch *m_ddeTouch = nullptr;
+    QMap<int32_t, QPointF> m_touchMap;  // wayland 窗管 touchUp 时没有位置信息，自行存储
     FakeInput *m_fakeInput{nullptr};
     QTimer *m_timer;
     WlDpmsManagerInterface *m_wldpms_Manager{nullptr};
