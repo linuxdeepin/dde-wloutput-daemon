@@ -98,7 +98,9 @@ public Q_SLOTS:
     QString GetOutput(QString uuid);
     void Apply(QString outputs);
     void WlSimulateKey(int keycode);
-    void setBrightness(QString uuid, const int brightness);
+    void SetBrightness(const QString uuid, const int brightness);
+    void SetColorTemperature(const QString uuid, const int temperature);
+
 private:
     void onDeviceChanged(OutputDevice *dev);
     void onDeviceRemove(quint32 name, quint32 version) ;
@@ -106,6 +108,8 @@ private:
     void createPlasmaWindowManagement(quint32 name, quint32 version);
     void createDpmsManagement();
     void registerDpmsDbus(Output *output);
+    void setColorCurvesBrightness(OutputDevice *outputDevice, const float brightness);
+    void setColorCurvesTemperature(OutputDevice *outputDevice, const int temperature);
 
 private:
     //QTimer m_Timer;
