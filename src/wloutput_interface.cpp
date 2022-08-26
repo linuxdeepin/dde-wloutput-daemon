@@ -343,7 +343,7 @@ void wloutput_interface::StartWork()
                     Q_EMIT CursorMove(pos.x(), pos.y());
                 }
                 );
-                connect(m_ddePointer, &DDEPointer::axisChanged, this, [this] (KWayland::Client::DDEPointer::Axis axis, qreal delta) {
+                connect(m_ddePointer, &DDEPointer::axisChanged, this, [this] (quint32 time, KWayland::Client::DDEPointer::Axis axis, qreal delta) {
                     Q_EMIT AxisChanged(int(axis), delta);
                 });
             }
