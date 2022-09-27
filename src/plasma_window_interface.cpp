@@ -47,6 +47,7 @@ void PlasmaWindowInterface::InitConnect()
     connect(m_plasmaWindow, &PlasmaWindow::unmapped, this, &PlasmaWindowInterface::Unmapped);
     connect(m_plasmaWindow, &PlasmaWindow::virtualDesktopChangeableChanged, this, &PlasmaWindowInterface::VirtualDesktopChangeableChanged);
     connect(m_plasmaWindow, &PlasmaWindow::virtualDesktopChanged, this, &PlasmaWindowInterface::VirtualDesktopChanged);
+    connect(m_plasmaWindow, &PlasmaWindow::surfaceTypeChanged, this, &PlasmaWindowInterface::SurfaceTypeChanged);
 }
 
 QString PlasmaWindowInterface::AppId() const
@@ -497,4 +498,9 @@ quint32 PlasmaWindowInterface::WindowId() const
         return m_plasmaWindow->windowId();
     }
     return 0;
+}
+
+int PlasmaWindowInterface::SurfaceType() const
+{
+    return static_cast<int>(m_plasmaWindow->surfaceType());
 }
