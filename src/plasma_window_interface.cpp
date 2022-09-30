@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2022 UnionTech Software Technology Co., Ltd.
+//
+// SPDX-License-Identifier: GPL-3.0-or-later
+
 #include "plasma_window_interface.h"
 #include <QtDBus/QDBusMessage>
 #include <QDBusInterface>
