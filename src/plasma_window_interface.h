@@ -57,7 +57,6 @@ signals:
     void Unmapped();
     void VirtualDesktopChangeableChanged();
     void VirtualDesktopChanged();
-    void SurfaceTypeChanged();
 
 public Q_SLOTS:
     QString AppId() const;
@@ -106,7 +105,6 @@ public Q_SLOTS:
     void UnsetMinimizedGeometry (Surface *panel);
     quint32 VirtualDesktop () const;
     quint32 WindowId() const;
-    int SurfaceType() const;
 
 private:
     PlasmaWindow* m_plasmaWindow{nullptr};
