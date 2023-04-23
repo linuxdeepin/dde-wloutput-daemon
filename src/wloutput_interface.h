@@ -119,8 +119,6 @@ private:
     void createDpmsManagement();
     void onPrimaryOutputV1Announced(quint32 name, quint32 version);
     void registerDpmsDbus(Output *output);
-    void setColorCurvesBrightness(OutputDevice *outputDevice, const float brightness);
-    void setColorCurvesTemperature(OutputDevice *outputDevice, const int temperature);
 
 private:
     //QTimer m_Timer;

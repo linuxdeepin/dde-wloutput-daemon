@@ -1,5 +1,7 @@
 cmake_minimum_required(VERSION 3.7)
 
+project(dde-wloutput-daemon)
+
 set(CMAKE_AUTOMOC ON)
 
 FOREACH (this_dir

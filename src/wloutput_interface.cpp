@@ -520,25 +520,14 @@ void wloutput_interface::Apply(QString outputs)
     }
 }
 
-void wloutput_interface::SetBrightness(QString uuid, const int brightness)
+void wloutput_interface::setBrightness(QString uuid, const int brightness)
 {
     auto itFind = uuid2OutputDevice.find(uuid);
     if (itFind != uuid2OutputDevice.end())
     {
         auto dev = itFind.value();
-        setColorCurvesBrightness(dev, brightness / 100.0);
-    } else {
-        qDebug() << "uuid is not found";
-    }
-}
-
-void wloutput_interface::SetColorTemperature(QString uuid, const int temperature)
-{
-    auto itFind = uuid2OutputDevice.find(uuid);
-    if (itFind != uuid2OutputDevice.end())
-    {
-        auto dev = itFind.value();
-        setColorCurvesTemperature(dev, temperature);
+        m_pConf->setBrightness(dev, brightness);
+        m_pConf->apply();
     } else {
         qDebug() << "uuid is not found";
     }
