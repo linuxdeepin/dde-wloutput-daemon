@@ -4,7 +4,7 @@ project(dde-wloutput-daemon)
 # 增加安全编译参数
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fstack-protector-all")
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fstack-protector-all")
-set(CMAKE_EXE_LINKER_FLAGS  "-z relro -z now -z noexecstack -pie")
+set(CMAKE_EXE_LINKER_FLAGS  "${CMAKE_EXE_LINKER_FLAGS} -z relro -z now -z noexecstack -pie")
 
 set(TARGET_NAME dde-wloutput-daemon)
 FILE(GLOB SC_FILES "*.cpp" "*.h")
