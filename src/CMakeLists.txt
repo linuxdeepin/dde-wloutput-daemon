@@ -13,7 +13,7 @@ add_executable(${TARGET_NAME} ${SC_FILES})
 
 # Find the library
 find_package(PkgConfig REQUIRED)
-find_package(DtkGui REQUIRED)
+find_package(DtkCore REQUIRED)
 find_package(Qt5 COMPONENTS
     Core
     Gui
@@ -29,6 +29,6 @@ target_link_libraries(${TARGET_NAME}
     Qt5::Core
     Qt5::DBus
     Qt5::Widgets
-    ${DtkGui_LIBRARIES}
+    ${DtkCore_LIBRARIES}
     DWaylandClient
 )
