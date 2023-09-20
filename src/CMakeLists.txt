@@ -1,5 +1,5 @@
 
-project(dde-wloutput-daemon)
+set(BIN_NAME dde-wloutput-daemon)
 
 # 增加安全编译参数
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fstack-protector-all")
@@ -25,10 +25,12 @@ find_package(ECM REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
 find_package(DWayland)
 
-target_link_libraries(${TARGET_NAME}
+target_link_libraries(${BIN_NAME}
     Qt5::Core
     Qt5::DBus
     Qt5::Widgets
     ${DtkCore_LIBRARIES}
     DWaylandClient
 )
+
+install(TARGETS ${BIN_NAME} DESTINATION ${CMAKE_INSTALL_BINDIR})

@@ -1,2 +1,0 @@
-obj-*-linux-gnu*/src/dde-wloutput-daemon /usr/bin
-misc/org.deepin.dde.KWayland1.service /usr/share/dbus-1/services/
