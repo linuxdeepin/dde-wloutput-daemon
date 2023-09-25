@@ -6,7 +6,7 @@ typedef _mode_info struct {
 	int32 width;
 	int32 height;
 	int32 refresh_rate;
-	int32 flags; // avaliable values: [current, preferred]
+	int32 flags; // available values: [current, preferred]
 }ModeInfo;
 
 typedef _output_info struct {

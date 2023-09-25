@@ -53,7 +53,7 @@ typedef struct _mode_info
     int width;
     int height;
     int refresh_rate;
-    int flags; // avaliable values: [current, preferred]
+    int flags; // available values: [current, preferred]
 }ModeInfo;
 
 
