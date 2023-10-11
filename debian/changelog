@@ -1,3 +1,9 @@
+dde-wloutput-daemon (2.0.4) unstable; urgency=medium
+
+  * chore: tidyup cmake
+
+ -- chenhongtao <chenhongtao@deepin.org>  Wed, 11 Oct 2023 15:35:26 +0800
+
 dde-wloutput-daemon (2.0.3) unstable; urgency=medium
 
   [ TagBuilder ]
